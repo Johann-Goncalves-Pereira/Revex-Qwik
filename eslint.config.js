@@ -1,4 +1,9 @@
-module.exports = {
+// fix __dirname
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+export default {
   root: true,
   env: {
     browser: true,
@@ -39,4 +44,14 @@ module.exports = {
     "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/no-unnecessary-condition": "warn",
   },
+  ignores: [
+    ".vscode",
+    "node_modules",
+    "node_modules/**",
+    "eslint.config.js",
+    "dist",
+    "pnpm-lock.yaml",
+    ".vscode/settings.json",
+    "vite.config.ts",
+  ],
 };
