@@ -63,6 +63,13 @@ export default defineConfig((): UserConfig => {
 				'Cache-Control': 'public, max-age=600',
 			},
 		},
+		css: {
+			preprocessorOptions: {
+				scss: {
+					api: 'modern',
+				},
+			},
+		},
 	}
 })
 // *** utils ***

@@ -1,0 +1,6 @@
+@function character-base-clamp($min, $max) {
+	$dvw: round(($min + $max) / 4);
+	$ch: round(($min + $max) / 6);
+
+	@return clamp(#{$min}ch, #{$ch}ch + #{$dvw}dvw, #{$max}ch);
+}

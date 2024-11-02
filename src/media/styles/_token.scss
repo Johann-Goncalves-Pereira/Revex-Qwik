@@ -1,0 +1,87 @@
+@use 'node_modules/utopia-core-scss/src/utopia' as utopia;
+
+:root {
+	@include utopia.generateTypeScale(
+		(
+			'minWidth': 240,
+			'maxWidth': 1920,
+			'minFontSize': 16,
+			'maxFontSize': 24,
+			'minTypeScale': 1.2,
+			'maxTypeScale': 1.333,
+			'positiveSteps': 6,
+			'negativeSteps': 2,
+			'prefix': 'step-',
+			'relativeTo': 'viewport-width',
+		)
+	);
+
+	@include utopia.generateSpaceScale(
+		(
+			'minWidth': 240,
+			'maxWidth': 1920,
+			'minSize': 16,
+			'maxSize': 24,
+			'positiveSteps': (
+				1.5,
+				2,
+				3,
+				4,
+				6,
+			),
+			'negativeSteps': (
+				0.75,
+				0.5,
+				0.25,
+			),
+			'customSizes': (
+				's-l',
+			),
+			'prefix': 'space-',
+			'relativeTo': 'viewport-width',
+		)
+	);
+
+	--grid-max-width: 108rem;
+	--grid-gutter: var(--space-s-l, clamp(1rem, 0.6774rem + 2.1505vw, 3rem));
+	--grid-columns: 14;
+
+	@media (prefers-color-scheme: light) {
+		--surface-100: oklch(98% 0.025 175);
+		--surface-150: oklch(90% 0.025 175);
+		--surface-200: oklch(83% 0.025 175);
+		--surface-300: oklch(76% 0.025 175);
+		--surface-400: oklch(64% 0.025 175);
+		--surface-500: oklch(50% 0.025 175);
+		--surface-600: oklch(36% 0.025 175);
+		--surface-700: oklch(24% 0.025 175);
+		--surface-800: oklch(17% 0.025 175);
+		--surface-950: oklch(10% 0.025 175);
+		--surface-900: oklch(2% 0.025 175);
+
+		--brand-700: oklch(35% 0.47 175);
+		--brand-500: oklch(50% 0.47 175);
+		--brand-300: oklch(65% 0.47 175);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		--surface-100: oklch(2% 0.025 175);
+		--surface-150: oklch(10% 0.025 175);
+		--surface-200: oklch(17% 0.025 175);
+		--surface-300: oklch(24% 0.025 175);
+		--surface-400: oklch(36% 0.025 175);
+		--surface-500: oklch(50% 0.025 175);
+		--surface-600: oklch(64% 0.025 175);
+		--surface-700: oklch(76% 0.025 175);
+		--surface-800: oklch(83% 0.025 175);
+		--surface-900: oklch(90% 0.025 175);
+		--surface-950: oklch(98% 0.025 175);
+
+		--brand-300: oklch(35% 0.47 175);
+		--brand-500: oklch(50% 0.47 175);
+		--brand-700: oklch(65% 0.47 175);
+
+		--text: var(--surface-900);
+		--text-invert: var(--surface-100);
+	}
+}
