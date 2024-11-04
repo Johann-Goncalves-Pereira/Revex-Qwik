@@ -2,7 +2,7 @@ import { $, component$, useOn, useOnWindow, useSignal } from '@builder.io/qwik'
 
 type Props = {
 	id?: string
-	color?: SRGB
+	color?: string
 	baseFrequency?: IntRange<50, 90>
 }
 
@@ -11,7 +11,7 @@ export const NoiseHtmlString = ({ id, color, baseFrequency }: Props) => {
 			viewBox='0 0 250 250'
 			xmlns='http://www.w3.org/2000/svg'
 			${id ? `id='${id}'` : ''}
-			style='color: ${color ? `rgb(${color.r}, ${color.g}, ${color.b})` : 'currentColor'};'
+			style='color: ${color ? `${color}` : 'currentColor'};'
 		>
 			<filter id='noiseFilter'>
 				<feTurbulence
