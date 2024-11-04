@@ -65,6 +65,30 @@ export default defineConfig(({ mode }): UserConfig => {
 				'Cache-Control': 'public, max-age=600',
 			},
 		},
+		resolve: {
+			alias: [
+				{
+					find: '@component',
+					replacement: join(__dirname, 'src', 'components'),
+				},
+				{
+					find: '@media',
+					replacement: join(__dirname, 'src', 'media'),
+				},
+				{
+					find: '@routes',
+					replacement: join(__dirname, 'src', 'routes'),
+				},
+				{
+					find: '@states',
+					replacement: join(__dirname, 'src', 'states'),
+				},
+				{
+					find: '@utils',
+					replacement: join(__dirname, 'src', 'utils'),
+				},
+			],
+		},
 		css: {
 			preprocessorOptions: {
 				scss: {
