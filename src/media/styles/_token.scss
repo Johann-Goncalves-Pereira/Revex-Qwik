@@ -1,6 +1,8 @@
-@use 'node_modules/utopia-core-scss/src/utopia' as utopia;
+@use '/node_modules/utopia-core-scss/src/utopia' as utopia;
 
 :root {
+	/* ------ Scale ------ */
+	// https://utopia.fyi/grid/calculator?c=240,16,1.2,1728,24,1.333,6,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
 	@include utopia.generateTypeScale(
 		(
 			'minWidth': 240,
@@ -15,73 +17,77 @@
 			'relativeTo': 'viewport-width',
 		)
 	);
-
-	@include utopia.generateSpaceScale(
-		(
-			'minWidth': 240,
-			'maxWidth': 1920,
-			'minSize': 16,
-			'maxSize': 24,
-			'positiveSteps': (
-				1.5,
-				2,
-				3,
-				4,
-				6,
-			),
-			'negativeSteps': (
-				0.75,
-				0.5,
-				0.25,
-			),
-			'customSizes': (
-				's-l',
-			),
-			'prefix': 'space-',
-			'relativeTo': 'viewport-width',
-		)
-	);
-
 	--grid-max-width: 108rem;
 	--grid-gutter: var(--space-s-l, clamp(1rem, 0.6774rem + 2.1505vw, 3rem));
 	--grid-columns: 14;
 
-	@media (prefers-color-scheme: light) {
-		--surface-100: oklch(98% 0.025 175);
-		--surface-150: oklch(90% 0.025 175);
-		--surface-200: oklch(83% 0.025 175);
-		--surface-300: oklch(76% 0.025 175);
-		--surface-400: oklch(64% 0.025 175);
-		--surface-500: oklch(50% 0.025 175);
-		--surface-600: oklch(36% 0.025 175);
-		--surface-700: oklch(24% 0.025 175);
-		--surface-800: oklch(17% 0.025 175);
-		--surface-950: oklch(10% 0.025 175);
-		--surface-900: oklch(2% 0.025 175);
+	/* ------ COLORS ------ */
 
-		--brand-700: oklch(35% 0.47 175);
-		--brand-500: oklch(50% 0.47 175);
-		--brand-300: oklch(65% 0.47 175);
+	--text-100: var(--surface-900);
+	--text-200: var(--surface-800);
+	--text-800: var(--surface-200);
+	--text-900: var(--surface-100);
+
+	/* @link https://utopia.fyi/space/calculator?c=240,16,1.2,1728,24,1.333,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6|12,s-l&g=s,l,xl,12 */
+	:root {
+		@include utopia.generateSpaceScale(
+			(
+				'minWidth': 240,
+				'maxWidth': 1728,
+				'minSize': 16,
+				'maxSize': 24,
+				'positiveSteps': (
+					1.5,
+					2,
+					3,
+					4,
+					6,
+					12,
+				),
+				'negativeSteps': (
+					0.75,
+					0.5,
+					0.25,
+				),
+				'prefix': 'space-',
+				'relativeTo': 'viewport-width',
+			)
+		);
+	}
+
+	@media (prefers-color-scheme: light) {
+		--surface-100: oklch(98% 0.00625 175);
+		--surface-150: oklch(90% 0.00625 175);
+		--surface-200: oklch(81% 0.00625 175);
+		--surface-300: oklch(72% 0.00625 175);
+		--surface-400: oklch(63% 0.00625 175);
+		--surface-500: oklch(54% 0.00625 175);
+		--surface-600: oklch(45% 0.00625 175);
+		--surface-700: oklch(36% 0.00625 175);
+		--surface-800: oklch(27% 0.00625 175);
+		--surface-950: oklch(18% 0.00625 175);
+		--surface-900: oklch(9% 0.00625 175);
+
+		--brand-700: oklch(36% 0.47 175);
+		--brand-500: oklch(54% 0.47 175);
+		--brand-300: oklch(72% 0.47 175);
 	}
 
 	@media (prefers-color-scheme: dark) {
-		--surface-100: oklch(2% 0.025 175);
-		--surface-150: oklch(10% 0.025 175);
-		--surface-200: oklch(17% 0.025 175);
-		--surface-300: oklch(24% 0.025 175);
-		--surface-400: oklch(36% 0.025 175);
-		--surface-500: oklch(50% 0.025 175);
-		--surface-600: oklch(64% 0.025 175);
-		--surface-700: oklch(76% 0.025 175);
-		--surface-800: oklch(83% 0.025 175);
-		--surface-900: oklch(90% 0.025 175);
-		--surface-950: oklch(98% 0.025 175);
+		--surface-100: oklch(9% 0.00625 175);
+		--surface-150: oklch(18% 0.00625 175);
+		--surface-200: oklch(27% 0.00625 175);
+		--surface-300: oklch(36% 0.00625 175);
+		--surface-400: oklch(45% 0.00625 175);
+		--surface-500: oklch(54% 0.00625 175);
+		--surface-600: oklch(63% 0.00625 175);
+		--surface-700: oklch(72% 0.00625 175);
+		--surface-800: oklch(81% 0.00625 175);
+		--surface-900: oklch(90% 0.00625 175);
+		--surface-950: oklch(98% 0.00625 175);
 
-		--brand-300: oklch(35% 0.47 175);
-		--brand-500: oklch(50% 0.47 175);
-		--brand-700: oklch(65% 0.47 175);
-
-		--text: var(--surface-900);
-		--text-invert: var(--surface-100);
+		--brand-300: oklch(36% 0.47 175);
+		--brand-500: oklch(54% 0.47 175);
+		--brand-700: oklch(72% 0.47 175);
 	}
 }

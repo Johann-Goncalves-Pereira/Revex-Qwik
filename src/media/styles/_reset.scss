@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /* 
 *   Kevin Powell
 *   https://youtu.be/cCAtD_BAHNw 
@@ -30,10 +32,6 @@
 		/* https://caniuse.com/?search=allow-keywords */
 		interpolate-size: allow-keywords;
 	}
-}
-
-:where(body) {
-	background-color: var(--surface-100);
 }
 
 /* Media responsive */
@@ -99,6 +97,7 @@ input[type='search']::-webkit-search-results-decoration {
 	white-space: nowrap;
 }
 
+/* Scroll smooth */
 @media screen and (prefers-reduced-motion: no-preference) {
 	@supports not selector(:has(*)) {
 		html {
@@ -112,5 +111,46 @@ input[type='search']::-webkit-search-results-decoration {
 			scroll-behavior: smooth;
 			scroll-padding-top: 3rem;
 		}
+	}
+}
+
+[data-env='dev'] {
+	.debug,
+	&.debug {
+		opacity: 1 !important;
+		outline: 1px dotted oklch(35% 0.47 0 / 50%) !important;
+		background-color: oklch(35% 0.47 0 / 6.25%) !important;
+
+		$base: '';
+		@for $i from 1 through 16 {
+			$base: $base + '>*';
+			$hue: $i * 45;
+			$opacity-outline: math.div($i * 100, 16) * 0.01;
+			$opacity-background: math.div($i * 100, 32) * 0.01;
+
+			#{$base} {
+				outline: 1px
+					dotted
+					oklch(35% 0.47 #{$hue} / #{$opacity-outline}) !important;
+				outline-offset: -1px;
+				background-color: oklch(
+					35% 0.47 #{$hue} / #{$opacity-background}
+				) !important;
+			}
+		}
+	}
+}
+
+/* Stop any animation if the user has set their device to "prefers reduced motion". */
+@​media (prefers-reduced-motion: reduce) {
+	*,
+	::after,
+	::before {
+		animation: none !important;
+		animation-duration: 1ms !important;
+		animation-delay: -1ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 1ms !important;
+		background-attachment: initial !important;
 	}
 }
