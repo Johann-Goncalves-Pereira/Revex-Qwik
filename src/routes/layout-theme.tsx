@@ -1,6 +1,6 @@
 import { component$, Slot } from '@builder.io/qwik'
 
-import styles from './layout-theme.module.scss'
+import styles from '@routes/layout-theme.module.scss'
 
 export default component$(() => {
 	const gutters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
@@ -8,7 +8,7 @@ export default component$(() => {
 
 	return (
 		<>
-			<header class={styles.header}>
+			<header class={`${styles.header} background-noise`}>
 				{[spaces, spaces].map(sp =>
 					sp.map(space => (
 						<div
@@ -19,10 +19,10 @@ export default component$(() => {
 					)),
 				)}
 			</header>
-			<main class={styles.main}>
+			<main class={`${styles.main} background-noise`}>
 				<Slot />
 			</main>
-			<footer class={styles.footer}>
+			<footer class={`${styles.footer} background-noise`}>
 				{gutters.map(gutter => (
 					<div
 						class={styles.footer__gutter}

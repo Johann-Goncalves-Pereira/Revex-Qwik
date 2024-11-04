@@ -22,26 +22,12 @@ body:has(.main) {
 	grid-template-columns: repeat(14, 1fr);
 	gap: var(--grid-gutter);
 
-	animation: alternateBackgroundNoise 200ms infinite;
 	border: 1px solid var(--surface-200);
 	border-radius: 0.5rem;
 
-	background-image: var(--background-image-svg);
 	padding-inline: var(--grid-gutter);
 
 	color: var(--brand-500);
-
-	@keyframes alternateBackgroundNoise {
-		0% {
-			--background-image-svg: var(--body-noise-svg-1);
-		}
-		50% {
-			--background-image-svg: var(--body-noise-svg-2);
-		}
-		100% {
-			--background-image-svg: var(--body-noise-svg-3);
-		}
-	}
 }
 
 .footer {

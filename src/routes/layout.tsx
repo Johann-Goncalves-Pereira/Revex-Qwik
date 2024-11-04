@@ -2,10 +2,10 @@ import { component$, Slot, useStyles$ } from '@builder.io/qwik'
 import { routeLoader$ } from '@builder.io/qwik-city'
 import type { RequestHandler } from '@builder.io/qwik-city'
 
-import Header from '../components/layout/header/header'
-import Footer from '../components/layout/footer/footer'
+import Header from '@components/layout/header/header'
+import Footer from '@components/layout/footer/footer'
 
-import styles from './layout.module.scss'
+import styles from '@routes/layout.module.scss'
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
 	// Control caching for this request for best performance and to reduce hosting costs:
