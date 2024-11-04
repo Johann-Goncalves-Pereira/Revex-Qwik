@@ -8,6 +8,7 @@ import {
 import { RouterHead } from '@components/router-head/router-head'
 
 import '@media/styles/_index.scss'
+import '@total-typescript/ts-reset'
 import { backgroundNoise } from '@utils/background'
 
 export default component$(() => {

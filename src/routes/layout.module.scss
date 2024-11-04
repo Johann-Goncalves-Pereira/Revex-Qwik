@@ -1,5 +1,15 @@
 body {
+	display: grid;
+	grid-template-columns: repeat(14, 1fr);
+	gap: var(--grid-gutter);
+
+	margin-inline: auto;
 	background-color: var(--surface-100);
+	padding-inline: var(--grid-gutter);
+
+	width: min(var(--grid-max-width), 100dvw);
+	height: 100dvh;
+
 	font-family:
 		ui-rounded,
 		Hiragino Maru Gothic ProN,

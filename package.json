@@ -26,9 +26,10 @@
 		"qwik": "qwik"
 	},
 	"devDependencies": {
-		"@builder.io/partytown": "^0.8.1",
+		"@builder.io/partytown": "^0.8.2",
 		"@builder.io/qwik": "^1.9.1",
 		"@builder.io/qwik-city": "^1.9.1",
+		"@total-typescript/ts-reset": "^0.6.1",
 		"@types/eslint": "9.6.1",
 		"@types/node": "22.8.6",
 		"@typescript-eslint/eslint-plugin": "8.12.2",

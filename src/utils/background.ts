@@ -1,4 +1,5 @@
 import { $ } from '@builder.io/qwik'
+import { randomInt } from './math'
 
 type Props = {
 	id?: string
@@ -50,7 +51,7 @@ export const NoiseHtmlString = ({
 		</svg>`
 }
 
-export const backgroundNoise = $((window: Window, document: Document) => {
+export const backgroundNoise = $(async (window: Window, document: Document) => {
 	const root = document.documentElement
 	const customProperty =
 		getComputedStyle(root).getPropertyValue('--surface-150')
@@ -60,11 +61,10 @@ export const backgroundNoise = $((window: Window, document: Document) => {
 			NoiseHtmlString({
 				color: customProperty,
 				baseFrequency: bf,
-				opacity: 75,
 			}),
 		)}')`
 
-	const svg1 = buildSvg(89)
+	const svg1 = buildSvg(65)
 	const svg2 = buildSvg(70)
 	const svg3 = buildSvg(75)
 

@@ -51,6 +51,6 @@ export default {
 		'node_modules/**',
 		'pnpm-lock.yaml',
 		'.vscode/settings.json',
-		'vite.config.ts',
+		'*.config.ts',
 	],
 }
