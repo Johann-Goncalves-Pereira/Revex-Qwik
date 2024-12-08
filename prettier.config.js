@@ -15,7 +15,7 @@ export default {
 	endOfLine: 'lf',
 	useTabs: true,
 	trailingComma: 'all',
-	plugins: ['prettier-plugin-css-order'],
+	plugins: ['prettier-plugin-css-order', 'prettier-plugin-tailwindcss'],
 	'prettier-plugin-css-order': {
 		syntax: 'postcss-scss',
 		order: 'concentric-css',

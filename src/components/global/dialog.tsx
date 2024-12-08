@@ -2,8 +2,7 @@ import {
 	$,
 	component$,
 	createContextId,
-	JSX,
-	Signal,
+	type Signal,
 	Slot,
 	useContext,
 } from '@builder.io/qwik'

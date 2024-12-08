@@ -1,0 +1,177 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 80,
+		"attributePosition": "auto"
+	},
+	"organizeImports": { "enabled": false },
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"noBannedTypes": "off",
+				"noExtraBooleanCast": "warn",
+				"noMultipleSpacesInRegularExpressionLiterals": "warn",
+				"noUselessCatch": "warn",
+				"noUselessThisAlias": "off",
+				"noUselessTypeConstraint": "warn",
+				"noWith": "warn"
+			},
+			"correctness": {
+				"noConstAssign": "warn",
+				"noConstantCondition": "warn",
+				"noEmptyCharacterClassInRegex": "warn",
+				"noEmptyPattern": "warn",
+				"noGlobalObjectCalls": "warn",
+				"noInnerDeclarations": "warn",
+				"noInvalidConstructorSuper": "warn",
+				"noNewSymbol": "warn",
+				"noNonoctalDecimalEscape": "warn",
+				"noPrecisionLoss": "warn",
+				"noSelfAssign": "warn",
+				"noSetterReturn": "warn",
+				"noSwitchDeclarations": "off",
+				"noUndeclaredVariables": "warn",
+				"noUnreachable": "warn",
+				"noUnreachableSuper": "warn",
+				"noUnsafeFinally": "warn",
+				"noUnsafeOptionalChaining": "warn",
+				"noUnusedLabels": "warn",
+				"noUnusedImports": "warn",
+				"noUnusedVariables": "warn",
+				"useArrayLiterals": "off",
+				"useIsNan": "warn",
+				"useValidForDirection": "warn",
+				"useYield": "warn"
+			},
+			"style": {
+				"noInferrableTypes": "off",
+				"noNamespace": "off",
+				"noNonNullAssertion": "off",
+				"useAsConstAssertion": "warn",
+				"useImportType": "warn"
+			},
+			"suspicious": {
+				"noAssignInExpressions": "off",
+				"noAsyncPromiseExecutor": "warn",
+				"noCatchAssign": "warn",
+				"noClassAssign": "warn",
+				"noCompareNegZero": "warn",
+				"noConsoleLog": "off",
+				"noControlCharactersInRegex": "warn",
+				"noDebugger": "warn",
+				"noDuplicateCase": "warn",
+				"noDuplicateClassMembers": "warn",
+				"noDuplicateObjectKeys": "warn",
+				"noDuplicateParameters": "warn",
+				"noEmptyBlockStatements": "warn",
+				"noEmptyInterface": "off",
+				"noExplicitAny": "off",
+				"noExtraNonNullAssertion": "warn",
+				"noFallthroughSwitchClause": "warn",
+				"noFunctionAssign": "warn",
+				"noGlobalAssign": "warn",
+				"noImportAssign": "warn",
+				"noMisleadingCharacterClass": "warn",
+				"noMisleadingInstantiator": "warn",
+				"noPrototypeBuiltins": "warn",
+				"noRedeclare": "warn",
+				"noShadowRestrictedNames": "warn",
+				"noUnsafeDeclarationMerging": "warn",
+				"noUnsafeNegation": "warn",
+				"useGetterReturn": "warn",
+				"useValidTypeof": "warn"
+			}
+		}
+	},
+	"javascript": {
+		"globals": ["Bun"],
+		"formatter": {
+			"jsxQuoteStyle": "single",
+			"quoteProperties": "asNeeded",
+			"trailingCommas": "all",
+			"semicolons": "asNeeded",
+			"arrowParentheses": "always",
+			"bracketSpacing": true,
+			"bracketSameLine": false,
+			"quoteStyle": "single",
+			"attributePosition": "auto"
+		}
+	},
+	"overrides": [
+		{
+			"include": ["*.{js,cjs,cts,mjs,ts,mts,jsx,tsx}"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noConstAssign": "off",
+						"noGlobalObjectCalls": "off",
+						"noInvalidConstructorSuper": "off",
+						"noInvalidNewBuiltin": "off",
+						"noNewSymbol": "off",
+						"noSetterReturn": "off",
+						"noUndeclaredVariables": "off",
+						"noUnreachable": "off",
+						"noUnreachableSuper": "off"
+					},
+					"style": {
+						"noArguments": "warn",
+						"noVar": "warn",
+						"useConst": "warn"
+					},
+					"suspicious": {
+						"noDuplicateClassMembers": "off",
+						"noDuplicateObjectKeys": "off",
+						"noDuplicateParameters": "off",
+						"noFunctionAssign": "off",
+						"noImportAssign": "off",
+						"noRedeclare": "off",
+						"noUnsafeNegation": "off",
+						"useGetterReturn": "off"
+					}
+				}
+			}
+		}
+	],
+	"files": {
+		"ignore": [
+			"build",
+			"dist",
+			"dist-dev",
+			"bazel-*",
+			"bazel-bin",
+			"bazel-out",
+			"bazel-qwik",
+			"bazel-testlogs",
+			"lib",
+			"lib-types",
+			"etc",
+			"external",
+			"tsc-out",
+			"target",
+			"output",
+			"server",
+			"tsconfig.tsbuildinfo",
+			"tsdoc-metadata.json",
+			".pnp",
+			".pnp.js",
+			".yarn",
+			"node_modules",
+			"bower_components",
+			"jspm_packages",
+			"*.local",
+			".rollup.cache",
+			".cache",
+			".netlify",
+			"backups",
+			"tmp",
+			".vscode"
+		]
+	}
+}

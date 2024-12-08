@@ -1,6 +1,7 @@
 **/*.log
 **/.DS_Store
 *.
+.vscode/**
 .history
 .yarn
 bazel-*
@@ -23,11 +24,11 @@ output
 rollup.config.js
 build
 .cache
-# .vscode
-# .vscode/settings.json
+.vscode
 .rollup.cache
+dist
 tsconfig.tsbuildinfo
-# vite.config.ts
+vite.config.ts
 *.spec.tsx
 *.spec.ts
 .netlify

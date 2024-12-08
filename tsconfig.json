@@ -17,6 +17,7 @@
 		"outDir": "tmp",
 		"noEmit": true,
 		"paths": {
+			"@/*": ["./src/*"],
 			"@components/*": ["./src/components/*"],
 			"@media/*": ["./src/media/*"],
 			"@routes/*": ["./src/routes/*"],
@@ -24,6 +25,5 @@
 			"@utils/*": ["./src/utils/*"]
 		}
 	},
-	"files": ["eslint.config.js"],
 	"include": ["src", "./*.d.ts", "./*.config.ts"]
 }

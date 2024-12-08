@@ -1,4 +1,4 @@
-import { $, component$, useOnDocument } from '@builder.io/qwik'
+import { component$ } from '@builder.io/qwik'
 import { isDev } from '@builder.io/qwik/build'
 import {
 	QwikCityProvider,
@@ -8,8 +8,8 @@ import {
 import { RouterHead } from '@components/router-head/router-head'
 
 import '@media/styles/_index.scss'
+import '@media/styles/tailwind.css'
 import '@total-typescript/ts-reset'
-import { backgroundNoise } from '@utils/background'
 
 export default component$(() => {
 	/**
@@ -18,20 +18,6 @@ export default component$(() => {
 	 *
 	 * Don't remove the `<head>` and `<body>` elements.
 	 */
-
-	useOnDocument(
-		'load',
-		$(async () => {
-			const noiseStyle = await backgroundNoise(window, document)
-			let styleElement = document.querySelector('style#noise-background')
-			if (!styleElement) {
-				styleElement = document.createElement('style')
-				styleElement.id = 'noise-background'
-				document.head.appendChild(styleElement)
-			}
-			styleElement.textContent = noiseStyle
-		}),
-	)
 
 	return (
 		<QwikCityProvider>

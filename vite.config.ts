@@ -8,7 +8,10 @@ import { qwikCity } from '@builder.io/qwik-city/vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import pkg from './package.json'
 import { partytownVite } from '@builder.io/partytown/utils'
+// biome-ignore lint/style/useNodejsImportProtocol: <explanation>
 import { join } from 'path'
+import biomePlugin from 'vite-plugin-biome'
+
 type PkgDep = Record<string, string>
 const { dependencies = {}, devDependencies = {} } = pkg as any as {
 	dependencies: PkgDep
@@ -20,15 +23,14 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies)
  * Note that Vite normally starts from `index.html` but the qwikCity plugin makes start at `src/entry.ssr.tsx` instead.
  */
 
-export default defineConfig(({ mode }): UserConfig => {
-	// { command, mode }
-
+export default defineConfig((): UserConfig => {
 	return {
 		plugins: [
 			qwikCity(),
 			qwikVite(),
 			tsconfigPaths(),
 			partytownVite({ dest: join(__dirname, 'dist', '~partytown') }),
+			biomePlugin(),
 		],
 		// This tells Vite which dependencies to pre-build in dev mode.
 		optimizeDeps: {
@@ -67,6 +69,10 @@ export default defineConfig(({ mode }): UserConfig => {
 		},
 		resolve: {
 			alias: [
+				{
+					find: '@',
+					replacement: join(__dirname, 'src'),
+				},
 				{
 					find: '@component',
 					replacement: join(__dirname, 'src', 'components'),
@@ -115,10 +121,12 @@ function errorOnDuplicatesPkgDeps(
 	// Create an array 'duplicateDeps' by filtering devDependencies.
 	// If a dependency also exists in dependencies, it is considered a duplicate.
 	const duplicateDeps = Object.keys(devDependencies).filter(
-		dep => dependencies[dep],
+		(dep) => dependencies[dep],
 	)
 	// include any known qwik packages
-	const qwikPkg = Object.keys(dependencies).filter(value => /qwik/i.test(value))
+	const qwikPkg = Object.keys(dependencies).filter((value) =>
+		/qwik/i.test(value),
+	)
 	// any errors for missing "qwik-city-plan"
 	// [PLUGIN_ERROR]: Invalid module "@qwik-city-plan" is not a valid package
 	msg = `Move qwik packages ${qwikPkg.join(', ')} to devDependencies`

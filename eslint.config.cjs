@@ -1,9 +1,4 @@
-// fix __dirname
-import { fileURLToPath } from 'url'
-import { dirname } from 'path'
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
-export default {
+module.exports = {
 	root: true,
 	env: {
 		browser: true,
@@ -40,17 +35,8 @@ export default {
 		'prefer-spread': 'off',
 		'no-case-declarations': 'off',
 		'no-console': 'off',
-		'@typescript-eslint/no-unused-vars': ['warn'],
+		'@typescript-eslint/no-unused-vars': ['error'],
 		'@typescript-eslint/consistent-type-imports': 'warn',
 		'@typescript-eslint/no-unnecessary-condition': 'warn',
 	},
-	ignores: [
-		'dist',
-		'.vscode',
-		'node_modules',
-		'node_modules/**',
-		'pnpm-lock.yaml',
-		'.vscode/settings.json',
-		'*.config.ts',
-	],
 }
