@@ -5,16 +5,16 @@
 *   https://youtu.be/cCAtD_BAHNw
 */
 
-:where(*, *::before, *::after) {
-	box-sizing: border-box;
-}
+// :where(*, *::before, *::after) {
+// 	box-sizing: border-box;
+// }
 
-:where(*) {
-	margin: 0;
-	padding: 0;
-	font: inherit; /* Get rid of all font sizes and heights */
-	text-wrap: pretty; /* Prevents orphans on lines */
-}
+// :where(*) {
+// 	margin: 0;
+// 	padding: 0;
+// 	font: inherit; /* Get rid of all font sizes and heights */
+// 	text-wrap: pretty; /* Prevents orphans on lines */
+// }
 
 :where(:focus-visible) {
 	outline-color: transparent;
@@ -84,18 +84,7 @@ input[type='search']::-webkit-search-results-decoration {
 	display: none;
 }
 
-/* Utils */
-.sr-only {
-	position: absolute;
-	margin: -1px;
-	padding: 0;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border-width: 0;
-	white-space: nowrap;
-}
+
 
 /* Scroll smooth */
 @media screen and (prefers-reduced-motion: no-preference) {

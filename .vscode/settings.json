@@ -18,5 +18,8 @@
 		".gitignore": ".*ignore",
 		"root.tsx": "entry.*"
 	},
-	"cSpell.words": ["partytown", "qwik"]
+	"cSpell.words": ["partytown", "qwik"],
+	"[js][ts][jsx][tsx][vue][json][astro][mdx][html]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	}
 }

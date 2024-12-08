@@ -11,6 +11,7 @@ import { partytownVite } from '@builder.io/partytown/utils'
 // biome-ignore lint/style/useNodejsImportProtocol: <explanation>
 import { join } from 'path'
 import biomePlugin from 'vite-plugin-biome'
+import tailwindcss from '@tailwindcss/vite'
 
 type PkgDep = Record<string, string>
 const { dependencies = {}, devDependencies = {} } = pkg as any as {
@@ -30,6 +31,7 @@ export default defineConfig((): UserConfig => {
 			qwikVite(),
 			tsconfigPaths(),
 			partytownVite({ dest: join(__dirname, 'dist', '~partytown') }),
+			tailwindcss(),
 			biomePlugin(),
 		],
 		// This tells Vite which dependencies to pre-build in dev mode.
@@ -99,9 +101,6 @@ export default defineConfig((): UserConfig => {
 			preprocessorOptions: {
 				scss: {
 					api: 'modern',
-
-					// add variable if production
-					additionalData: `$env: ${process.env.NODE_ENV};`,
 				},
 			},
 		},
